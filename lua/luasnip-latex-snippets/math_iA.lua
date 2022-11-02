@@ -28,14 +28,26 @@ local math_iA = {
 			return string.format("\\hat{%s}", snip.captures[1])
 		end, {})
 	),
+	s(
+		{
+			trig = "(%a)cal",
+			wordTrig = false,
+			regTrig = true,
+			name = "mathcal",
+			priority = 100,
+		},
+		f(function(_, snip)
+			return string.format("\\mathcal{%s}", snip.captures[1])
+		end, {})
+	),
 
 	ls.parser.parse_snippet({ trig = "td", name = "to the ... power ^{}" }, "^{$1}$0"),
 	ls.parser.parse_snippet({ trig = "rd", name = "to the ... power ^{()}" }, "^{($1)}$0"),
 	ls.parser.parse_snippet({ trig = "cb", name = "Cube ^3" }, "^3"),
 	ls.parser.parse_snippet({ trig = "sr", name = "Square ^2" }, "^2"),
 
-	ls.parser.parse_snippet({ trig = "EE", name = "exists" }, "\\exists"),
-	ls.parser.parse_snippet({ trig = "AA", name = "forall" }, "\\forall"),
+	ls.parser.parse_snippet({ trig = "ee", name = "exists" }, "\\exists"),
+	ls.parser.parse_snippet({ trig = "aa", name = "forall" }, "\\forall"),
 	ls.parser.parse_snippet({ trig = "xnn", name = "xn" }, "x_{n}"),
 	ls.parser.parse_snippet({ trig = "ynn", name = "yn" }, "y_{n}"),
 	ls.parser.parse_snippet({ trig = "xii", name = "xi" }, "x_{i}"),
