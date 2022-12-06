@@ -1,7 +1,7 @@
 local ls = require("luasnip")
 
 local math_i = {
-	ls.parser.parse_snippet({ trig = "sum", name = "sum" }, "\\sum_{n=${1:1}}^{${2:\\infty}} ${3:a_n z^n}"),
+	ls.parser.parse_snippet({ trig = "sum", name = "sum" }, "\\sum_{${1:n=1}}^{${2:\\infty}} ${3:a_n z^n}"),
 
 	ls.parser.parse_snippet(
 		{ trig = "taylor", name = "taylor" },

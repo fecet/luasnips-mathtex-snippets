@@ -98,6 +98,8 @@ local math_iA = {
 	ls.parser.parse_snippet({ trig = "tt", name = "text" }, "\\text{$1}$0"),
 
 	ls.parser.parse_snippet({ trig = "xx", name = "cross" }, "\\times"),
+	ls.parser.parse_snippet({ trig = "oxx", name = "cross" }, "\\otimes"),
+	ls.parser.parse_snippet({ trig = "circ", name = "cross" }, "\\circ"),
 
 	with_priority(ls.parser.parse_snippet({ trig = "**", name = "cdot" }, "\\cdot"), 100),
 
@@ -120,6 +122,7 @@ local math_iA = {
 	ls.parser.parse_snippet({ trig = "HH", name = "H" }, "\\mathbb{H}"),
 	ls.parser.parse_snippet({ trig = "EE", name = "Expecation" }, "\\mathop{{}\\mathbb{E}}_{$1}$0"),
 	ls.parser.parse_snippet({ trig = "PP", name = "Probability" }, "\\mathop{{}\\mathbb{P}}"),
+	ls.parser.parse_snippet({ trig = "VV", name = "variance" }, "\\mathop{{}\\mathbb{V}}"),
 	ls.parser.parse_snippet({ trig = "lll", name = "l" }, "\\ell"),
 	with_priority(
 		ls.parser.parse_snippet(

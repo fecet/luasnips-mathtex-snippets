@@ -90,7 +90,7 @@ M.setup = function(opts)
 	end
 
 	for _, snip in ipairs(require("luasnip-latex-snippets/bwA")) do
-		snip.condition = pipe({ conds.line_begin, not_math })
+		snip.condition = pipe({ conds.line_begin })
 		table.insert(autosnippets, snip)
 	end
 
