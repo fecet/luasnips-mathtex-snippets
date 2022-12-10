@@ -34,7 +34,7 @@ local math_i = {
 	ls.parser.parse_snippet({ trig = "lr[", name = "left[ right]" }, "\\left[ ${1:${TM_SELECTED_TEXT}} \\right] $0"),
 	ls.parser.parse_snippet(
 		{ trig = "lra", name = "leftangle rightangle" },
-		"\\left< ${1:${TM_SELECTED_TEXT}} \\right>$0"
+		"\\left\\langle ${1:${TM_SELECTED_TEXT}} \\right\\rangle$0"
 	),
 
 	ls.parser.parse_snippet(
