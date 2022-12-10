@@ -57,6 +57,8 @@ local math_iA = {
 	ls.parser.parse_snippet({ trig = "rd", name = "to the ... power ^{()}" }, "^{($1)}$0"),
 	ls.parser.parse_snippet({ trig = "cb", name = "Cube ^3" }, "^3"),
 	ls.parser.parse_snippet({ trig = "sr", name = "Square ^2" }, "^2"),
+	ls.parser.parse_snippet({ trig = "ge", name = ">=" }, "\\ge"),
+	ls.parser.parse_snippet({ trig = "le", name = "<=" }, "\\le"),
 
 	ls.parser.parse_snippet({ trig = "11", name = "indicator" }, "\\bm{1}"),
 	ls.parser.parse_snippet({ trig = "ee", name = "exists" }, "\\exists"),
@@ -147,6 +149,7 @@ local math_iA = {
 	ls.parser.parse_snippet({ trig = "invs", name = "inverse" }, "^{-1}"),
 	ls.parser.parse_snippet({ trig = "~~", name = "~" }, "\\sim"),
 	ls.parser.parse_snippet({ trig = "conj", name = "conjugate" }, "\\overline{$1}$0"),
+	ls.parser.parse_snippet({ trig = "dd", name = "d" }, " \\mathrm{d}"),
 }
 
 return math_iA
