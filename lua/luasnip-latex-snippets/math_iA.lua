@@ -49,7 +49,7 @@ local math_iA = {
 			priority = 100,
 		},
 		f(function(_, snip)
-			return string.format("\\mathbf{%s}", snip.captures[1])
+			return string.format("\\bm{%s}", snip.captures[1])
 		end, {})
 	),
 
@@ -57,18 +57,18 @@ local math_iA = {
 	ls.parser.parse_snippet({ trig = "rd", name = "to the ... power ^{()}" }, "^{($1)}$0"),
 	ls.parser.parse_snippet({ trig = "cb", name = "Cube ^3" }, "^3"),
 	ls.parser.parse_snippet({ trig = "sr", name = "Square ^2" }, "^2"),
-	ls.parser.parse_snippet({ trig = "ge", name = ">=" }, "\\ge"),
-	ls.parser.parse_snippet({ trig = "le", name = "<=" }, "\\le"),
+	ls.parser.parse_snippet({ trig = "ge", name = ">=" }, "\\ge "),
+	ls.parser.parse_snippet({ trig = "le", name = "<=" }, "\\le "),
 
 	ls.parser.parse_snippet({ trig = "11", name = "indicator" }, "\\bm{1}"),
 	ls.parser.parse_snippet({ trig = "ee", name = "exists" }, "\\exists"),
 	ls.parser.parse_snippet({ trig = "aa", name = "forall" }, "\\forall"),
 	ls.parser.parse_snippet({ trig = "xnn", name = "xn" }, "x_{n}"),
+	ls.parser.parse_snippet({ trig = "Xnn", name = "Xn" }, "X_{n}"),
 	ls.parser.parse_snippet({ trig = "ynn", name = "yn" }, "y_{n}"),
-	ls.parser.parse_snippet({ trig = "xii", name = "xi" }, "x_{i}"),
-	ls.parser.parse_snippet({ trig = "yii", name = "yi" }, "y_{i}"),
-	ls.parser.parse_snippet({ trig = "xjj", name = "xj" }, "x_{j}"),
-	ls.parser.parse_snippet({ trig = "yjj", name = "yj" }, "y_{j}"),
+	ls.parser.parse_snippet({ trig = "Ynn", name = "Yn" }, "Y_{n}"),
+	ls.parser.parse_snippet({ trig = "ii", name = "sub_i" }, "_{i}"),
+	ls.parser.parse_snippet({ trig = "jj", name = "sub_j" }, "_{j}"),
 	ls.parser.parse_snippet({ trig = "xp1", name = "x" }, "x_{n+1}"),
 	ls.parser.parse_snippet({ trig = "xmm", name = "x" }, "x_{m}"),
 	ls.parser.parse_snippet({ trig = "R0+", name = "R0+" }, "\\mathbb{R}_0^+"),
@@ -88,10 +88,10 @@ local math_iA = {
 	ls.parser.parse_snippet({ trig = "floor", name = "floor" }, "\\left\\lfloor $1 \\right\\rfloor$0"),
 	ls.parser.parse_snippet({ trig = "//", name = "Fraction" }, "\\frac{$1}{$2}$0"),
 	ls.parser.parse_snippet({ trig = "\\\\\\", name = "setminus" }, "\\setminus"),
-	with_priority(ls.parser.parse_snippet({ trig = "->", name = "to" }, "\\to"), 100),
+	with_priority(ls.parser.parse_snippet({ trig = "to", name = "to" }, "\\to "), 100),
 
 	ls.parser.parse_snippet({ trig = "letw", name = "let omega" }, "Let $\\Omega \\subset \\C$ be open."),
-	ls.parser.parse_snippet({ trig = "nnn", name = "bigcap" }, "\\bigcap_{${1:i \\in ${2: I}}} $0"),
+	ls.parser.parse_snippet({ trig = "nnn", name = "bigcap" }, "\\bigcap_{$1} $0"),
 	ls.parser.parse_snippet({ trig = "norm", name = "norm" }, "\\|$1\\|$0"),
 	ls.parser.parse_snippet({ trig = "<>", name = "hokje" }, "\\diamond"),
 	ls.parser.parse_snippet({ trig = ">>", name = ">>" }, "\\gg"),
@@ -110,7 +110,7 @@ local math_iA = {
 		"\\begin{pmatrix} ${1:x}_${2:1}\\\\ \\vdots\\\\ $1_${2:n} \\end{pmatrix}"
 	),
 	ls.parser.parse_snippet({ trig = "ceil", name = "ceil" }, "\\left\\lceil $1 \\right\\rceil $0"),
-	ls.parser.parse_snippet({ trig = "OO", name = "emptyset" }, "\\O"),
+	ls.parser.parse_snippet({ trig = "OO", name = "emptyset" }, "\\emptyset"),
 	ls.parser.parse_snippet({ trig = "RR", name = "R" }, "\\mathbb{R}"),
 	ls.parser.parse_snippet({ trig = "QQ", name = "Q" }, "\\mathbb{Q}"),
 	ls.parser.parse_snippet({ trig = "ZZ", name = "Z" }, "\\mathbb{Z}"),
@@ -119,10 +119,12 @@ local math_iA = {
 	ls.parser.parse_snippet({ trig = "||", name = "mid" }, " \\mid"),
 	ls.parser.parse_snippet({ trig = "cap", name = "cap" }, "\\cap"),
 	ls.parser.parse_snippet({ trig = "bmat", name = "bmat" }, "\\begin{bmatrix} $1 \\end{bmatrix} $0"),
-	ls.parser.parse_snippet({ trig = "uuu", name = "bigcup" }, "\\bigcup_{${1:i \\in ${2: I}}} $0"),
+	ls.parser.parse_snippet({ trig = "uuu", name = "bigcup" }, "\\bigcup_{$1} $0"),
+	ls.parser.parse_snippet({ trig = "TT", name = "Time set" }, "\\mathbb{T}"),
 	ls.parser.parse_snippet({ trig = "DD", name = "D" }, "\\mathbb{D}"),
 	ls.parser.parse_snippet({ trig = "HH", name = "H" }, "\\mathbb{H}"),
 	ls.parser.parse_snippet({ trig = "XX", name = "space" }, "\\mathbb{X}"),
+	ls.parser.parse_snippet({ trig = "FF", name = "filtration" }, "\\mathbb{F}"),
 	ls.parser.parse_snippet({ trig = "EE", name = "Expecation" }, "\\mathop{{}\\mathbb{E}}_{$1}$0"),
 	ls.parser.parse_snippet({ trig = "PP", name = "Probability" }, "\\mathop{{}\\mathbb{P}}"),
 	ls.parser.parse_snippet({ trig = "VV", name = "variance" }, "\\mathop{{}\\mathbb{V}}"),
@@ -140,6 +142,7 @@ local math_iA = {
 	ls.parser.parse_snippet({ trig = "!=", name = "not equals" }, "\\neq"),
 	ls.parser.parse_snippet({ trig = "compl", name = "complement" }, "^{c}"),
 	ls.parser.parse_snippet({ trig = "__", name = "subscript" }, "_{$1}$0"),
+	ls.parser.parse_snippet({ trig = "sub", name = "subscript" }, "_{$1}$0"),
 	ls.parser.parse_snippet({ trig = "=>", name = "implies" }, "\\implies"),
 	ls.parser.parse_snippet({ trig = "=<", name = "implied by" }, "\\impliedby"),
 	ls.parser.parse_snippet({ trig = "<<", name = "<<" }, "\\ll"),
@@ -149,7 +152,10 @@ local math_iA = {
 	ls.parser.parse_snippet({ trig = "invs", name = "inverse" }, "^{-1}"),
 	ls.parser.parse_snippet({ trig = "~~", name = "~" }, "\\sim"),
 	ls.parser.parse_snippet({ trig = "conj", name = "conjugate" }, "\\overline{$1}$0"),
-	ls.parser.parse_snippet({ trig = "dd", name = "d" }, " \\mathrm{d}"),
+	ls.parser.parse_snippet({ trig = "dd", name = "d" }, " \\mathrm{\\ d}"),
+	ls.parser.parse_snippet({ trig = "mrm", name = "mathrm" }, "\\mathrm{$1}$0"),
+	ls.parser.parse_snippet({ trig = "vphi", name = "varphi",priority=201 }, "\\varphi"),
+	ls.parser.parse_snippet({ trig = "card", name = "cardinal",priority=201 }, "\\text{card}\\left( ${1:${TM_SELECTED_TEXT}} \\right)$0"),
 }
 
 return math_iA
